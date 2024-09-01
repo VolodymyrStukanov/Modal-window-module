@@ -1,0 +1,59 @@
+
+.App{
+    display: flex;
+    justify-content: center;
+}
+
+.modalWindow {
+
+    position: absolute;
+    display: block;
+    padding-left: 0px;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+    top: 50% !important;  
+}
+
+.fade {
+    transition: opacity 0.15s linear;
+}
+  
+@media (prefers-reduced-motion: reduce) {
+    .fade {
+        transition: none;
+    }
+}
+
+.fade:not(.show) {
+    opacity: 0;
+}
+
+
+.modal.fade .modal-dialog {
+    transition: transform 0.3s ease-out;
+    transform: translate(0, -50px);
+}
+  
+@media (prefers-reduced-motion: reduce) {
+    .modal.fade .modal-dialog {
+    transition: none;
+    }
+}
+  
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    width: 100vw;
+    height: 100vh;
+    background-color: #313a46;
+}
+  
+.modal-backdrop.fade {
+    opacity: 0;
+}
+  
+.modal-backdrop.show {
+    opacity: 0.55;
+}

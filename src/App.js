@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import { Button } from "react-bootstrap";
+import { ModalWindow } from "./modules/ModalWindow/ModalWindow";
+import { ModalWindowController } from "./modules/ModalWindow/ModalWindowController";
+import { ParentModalWindowContent } from "./modules/ParentModalWindowContent";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      ModalWindowController.showRenderableModal({
+        styles: {
+          width: "20vw"
+        },
+        onClose: OnClose,
+        page: <ParentModalWindowContent />,
+        modalId: "ParentWindow"
+      });
+    } else {
+      ModalWindowController.hideModal("ParentWindow");
+    }
+  }, [isOpen]);
+
+  const OpenModal = () => {
+    setIsOpen(true);        
+  }
+
+  const OnClose = () => {
+    setIsOpen(false);        
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <ModalWindow id={"ParentWindow"}/>
+      <div>
+
+        <Button className={"w-10 m-3"} color="primary" type="button"
+          onClick={() => OpenModal()}>
+            Open Parent window
+        </Button>
+      </div>
+
     </div>
   );
 }
