@@ -4,7 +4,7 @@ import React, {useRef, useState, useImperativeHandle, useEffect} from 'react';
 import {ModalWindowController} from "./ModalWindowController"
 import "../../scss/scss.scss"
 
-const ModalWindow = ({id}) => {
+const ModalWindow = ({id = ""}) => {
 
     const modalRef = useRef();
     const [isOpen, setIsOpen] = useState(false);

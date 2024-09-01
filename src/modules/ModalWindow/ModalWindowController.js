@@ -36,7 +36,6 @@ class ModalWindowController{
     //for modal window content without hooks
     static showModal = ({styles, onClose, timer = 0, page, modalId}) => {
 
-        console.log(this.modalsRefsIds);
         if(modalId){
             let modal = this.modalsRefsIds.find(x => x.id === modalId);
             if(modal)
