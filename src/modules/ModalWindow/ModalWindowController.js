@@ -78,7 +78,7 @@ class ModalWindowController{
             }
         }
         else{
-            this.modalsRefsIds.each(modal => {
+            this.modalsRefsIds.forEach(modal => {
                 if(modal.ref.current?.isOpen()){
                     modal.ref.current?.hide();
                 }

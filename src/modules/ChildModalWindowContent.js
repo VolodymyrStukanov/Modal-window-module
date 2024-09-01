@@ -10,7 +10,7 @@ const ChildModalWindowContent = () => {
 
     return(
     <>
-    <Card>                    
+    <Card>
       <Card.Body>
             <div className="h3">Child modal window</div>
             <div>
@@ -18,7 +18,7 @@ const ChildModalWindowContent = () => {
                     onClick={() => onClose()}>
                         Close
                 </Button>
-            </div>    
+            </div>
         </Card.Body>
       </Card>        
     </>)
